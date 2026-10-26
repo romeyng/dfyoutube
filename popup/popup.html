@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=360, initial-scale=1.0">
+  <title>Distraction Free YouTube</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>DF YouTube</h1>
+          <span class="brand-badge">Local Edition</span>
+        </div>
+      </div>
+      
+      <!-- Master Toggle -->
+      <div class="master-toggle-wrap">
+        <label class="switch master-switch">
+          <input type="checkbox" id="toggle-enabled">
+          <span class="slider round"></span>
+        </label>
+      </div>
+    </header>
+
+    <!-- Master Status Banner -->
+    <div class="status-banner" id="status-banner">
+      <span class="status-dot"></span>
+      <span class="status-text" id="status-text">Focus Mode is Active</span>
+    </div>
+
+    <!-- Features Section -->
+    <main class="controls-list" id="controls-list">
+      <div class="section-title">Distraction Controls</div>
+
+      <!-- Hide Home Feed -->
+      <div class="control-card">
+        <div class="control-info">
+          <div class="control-header">
+            <svg class="control-icon" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            <span class="control-label">Hide Home Feed</span>
+          </div>
+          <p class="control-desc">Removes recommended video grid on the home page</p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="toggle-hideHomeFeed">
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+      <!-- Hide Left Sidebar -->
+      <div class="control-card">
+        <div class="control-info">
+          <div class="control-header">
+            <svg class="control-icon" viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+            <span class="control-label">Hide Left Sidebar</span>
+          </div>
+          <p class="control-desc">Hides navigation drawer, mini guide & menu icon</p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="toggle-hideLeftSidebar">
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+      <!-- Hide Watch Sidebar / Recommendations -->
+      <div class="control-card">
+        <div class="control-info">
+          <div class="control-header">
+            <svg class="control-icon" viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
+            <span class="control-label">Hide Watch Sidebar</span>
+          </div>
+          <p class="control-desc">Removes related videos next to player & centers video</p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="toggle-hideWatchSidebar">
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+      <!-- Zen Home Search Screen -->
+      <div class="control-card">
+        <div class="control-info">
+          <div class="control-header">
+            <svg class="control-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+            <span class="control-label">Zen Home Screen</span>
+          </div>
+          <p class="control-desc">Clean search bar & intentional shortcuts on home</p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="toggle-showHomeFocus">
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+      <!-- Hide Shorts -->
+      <div class="control-card">
+        <div class="control-info">
+          <div class="control-header">
+            <svg class="control-icon" viewBox="0 0 24 24"><path d="M17.77 10.32l-1.2-.5L18 9.06c1.84-.96 2.53-3.23 1.56-5.06s-3.24-2.53-5.07-1.56L6 6.94c-1.29.68-2.07 2.04-2 3.49.07 1.42.93 2.67 2.22 3.25.03.01 1.2.5 1.2.5L6 14.93c-1.83.97-2.53 3.24-1.56 5.07.97 1.83 3.24 2.53 5.07 1.56l8.5-4.5c1.29-.68 2.06-2.04 1.99-3.49-.07-1.42-.94-2.68-2.23-3.25zM10 14.5v-5l4.5 2.5-4.5 2.5z"/></svg>
+            <span class="control-label">Hide Shorts Shelves</span>
+          </div>
+          <p class="control-desc">Blocks endless algorithmic shorts carousels</p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="toggle-hideShorts">
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+      <!-- Redirect Shorts to Watch Page -->
+      <div class="control-card">
+        <div class="control-info">
+          <div class="control-header">
+            <svg class="control-icon" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+            <span class="control-label">Convert Shorts to Video</span>
+          </div>
+          <p class="control-desc">Plays Shorts in the regular distraction-free player</p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="toggle-redirectShorts">
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+      <!-- Hide Endscreen Recommendations -->
+      <div class="control-card">
+        <div class="control-info">
+          <div class="control-header">
+            <svg class="control-icon" viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+            <span class="control-label">Hide Endscreen Tiles</span>
+          </div>
+          <p class="control-desc">Suppresses "Next Video" tiles popping up before video ends</p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="toggle-hideEndscreen">
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+      <!-- Hide Comments -->
+      <div class="control-card">
+        <div class="control-info">
+          <div class="control-header">
+            <svg class="control-icon" viewBox="0 0 24 24"><path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18zM18 14H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+            <span class="control-label">Hide Comments</span>
+          </div>
+          <p class="control-desc">Hides comment section under videos</p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="toggle-hideComments">
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+      <!-- Only While Video Plays (Sub-option) -->
+      <div class="control-card sub-card" id="card-comments-while-playing">
+        <div class="control-info">
+          <div class="control-header">
+            <svg class="control-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            <span class="control-label">Only While Video Plays</span>
+          </div>
+          <p class="control-desc">Hides comments while playing; reveals when paused</p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="toggle-hideCommentsWhilePlayingOnly">
+          <span class="slider round"></span>
+        </label>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <button class="reset-btn" id="reset-defaults-btn">Reset Defaults</button>
+      <a href="https://www.youtube.com" target="_blank" class="yt-link" id="open-youtube-link">
+        Open YouTube
+        <svg viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
+      </a>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

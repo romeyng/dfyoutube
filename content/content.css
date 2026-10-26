@@ -1,0 +1,300 @@
+/* ==========================================================================
+   Distraction Free YouTube - Content Stylesheet
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Home Feed
+   -------------------------------------------------------------------------- */
+html.df-hide-home-feed ytd-browse[page-subtype="home"] ytd-rich-grid-renderer,
+html.df-hide-home-feed ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer,
+html.df-hide-home-feed ytd-browse[page-subtype="home"] ytd-feed-filter-chip-bar-renderer,
+html.df-hide-home-feed ytd-browse[page-subtype="home"] #header,
+html.df-hide-home-feed ytd-browse[page-subtype="home"] #chips-wrapper,
+html.df-hide-home-feed ytd-browse[page-subtype="home"] iron-selector#chips,
+html.df-hide-home-feed ytd-browse[page-subtype="home"] ytd-continuation-item-renderer,
+html.df-hide-home-feed ytd-browse[page-subtype="home"] tp-yt-paper-spinner {
+  display: none !important;
+}
+
+/* Ensure home container stays clean */
+html.df-hide-home-feed ytd-browse[page-subtype="home"] {
+  min-height: calc(100vh - 56px);
+}
+
+/* --------------------------------------------------------------------------
+   2. Left Navigation Sidebar / Guide
+   -------------------------------------------------------------------------- */
+/* Hide mini guide (the collapsed vertical icon bar) */
+html.df-hide-left-sidebar ytd-mini-guide-renderer,
+/* Hide full guide drawer */
+html.df-hide-left-sidebar tp-yt-app-drawer#guide,
+html.df-hide-left-sidebar tp-yt-app-drawer[id="guide"],
+html.df-hide-left-sidebar #guide,
+html.df-hide-left-sidebar ytd-guide-renderer,
+html.df-hide-left-sidebar #guide-wrapper,
+html.df-hide-left-sidebar #guide-spacer,
+/* Hide the hamburger guide button in the masthead */
+html.df-hide-left-sidebar ytd-masthead #guide-button,
+html.df-hide-left-sidebar #start #guide-button,
+html.df-hide-left-sidebar yt-icon-button#guide-button {
+  display: none !important;
+}
+
+/* Collapse the left margins YouTube sets for the sidebar */
+html.df-hide-left-sidebar ytd-app[mini-guide-visible] #page-manager,
+html.df-hide-left-sidebar ytd-app[guide-persistent-and-visible] #page-manager,
+html.df-hide-left-sidebar ytd-page-manager#page-manager,
+html.df-hide-left-sidebar #page-manager.ytd-app {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. Watch Page Recommendations (Secondary / Right Sidebar)
+   -------------------------------------------------------------------------- */
+html.df-hide-watch-sidebar ytd-watch-flexy #secondary,
+html.df-hide-watch-sidebar ytd-watch-flexy #secondary-inner,
+html.df-hide-watch-sidebar ytd-watch-grid #secondary,
+html.df-hide-watch-sidebar #secondary.ytd-watch-flexy,
+html.df-hide-watch-sidebar #watch7-sidebar,
+html.df-hide-watch-sidebar ytd-watch-next-secondary-results-renderer {
+  display: none !important;
+}
+
+/* Center video player when recommendations sidebar is hidden */
+html.df-hide-watch-sidebar ytd-watch-flexy:not([theater]):not([fullscreen]) #primary.ytd-watch-flexy {
+  max-width: 1320px !important;
+  min-width: 0 !important;
+  margin: 0 auto !important;
+}
+
+html.df-hide-watch-sidebar ytd-watch-flexy #columns.ytd-watch-flexy {
+  justify-content: center !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. Shorts
+   -------------------------------------------------------------------------- */
+/* Shorts links in left navigation */
+html.df-hide-shorts ytd-guide-entry-renderer:has(a[title="Shorts"]),
+html.df-hide-shorts ytd-guide-entry-renderer:has(a[href^="/shorts"]),
+html.df-hide-shorts ytd-mini-guide-entry-renderer[aria-label="Shorts"],
+html.df-hide-shorts ytd-mini-guide-entry-renderer:has(a[href^="/shorts"]),
+/* Shorts shelves in home/search feeds */
+html.df-hide-shorts ytd-rich-section-renderer:has(ytd-rich-shelf-renderer[is-shorts]),
+html.df-hide-shorts ytd-reel-shelf-renderer,
+html.df-hide-shorts ytd-rich-shelf-renderer[is-shorts],
+html.df-hide-shorts ytd-shelf-renderer:has(a[href^="/shorts"]),
+/* Shorts tab on channel pages */
+html.df-hide-shorts yt-tab-shape[tab-title="Shorts"],
+html.df-hide-shorts tp-yt-paper-tab:has(.tab-content[aria-label*="Shorts"]) {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   5. Comments
+   -------------------------------------------------------------------------- */
+/* Unconditional comments hiding (when hideComments is on and NOT restricted to playing) */
+html.df-hide-comments:not(.df-comments-while-playing-only) #comments,
+html.df-hide-comments:not(.df-comments-while-playing-only) ytd-comments,
+html.df-hide-comments:not(.df-comments-while-playing-only) ytd-item-section-renderer[section-identifier="comment-item-section"],
+html.df-hide-comments:not(.df-comments-while-playing-only) ytd-engagement-panel-section-list-renderer[target-id="engagement-panel-comments-section"],
+html.df-hide-comments:not(.df-comments-while-playing-only) ytd-engagement-panel-section-list-renderer[target-id="watch-comments-panel"],
+html.df-hide-comments:not(.df-comments-while-playing-only) #comment-teaser,
+
+/* Playback-dependent comments hiding (only while the video is actively playing) */
+html.df-hide-comments.df-comments-while-playing-only.df-video-playing #comments,
+html.df-hide-comments.df-comments-while-playing-only.df-video-playing ytd-comments,
+html.df-hide-comments.df-comments-while-playing-only.df-video-playing ytd-item-section-renderer[section-identifier="comment-item-section"],
+html.df-hide-comments.df-comments-while-playing-only.df-video-playing ytd-engagement-panel-section-list-renderer[target-id="engagement-panel-comments-section"],
+html.df-hide-comments.df-comments-while-playing-only.df-video-playing ytd-engagement-panel-section-list-renderer[target-id="watch-comments-panel"],
+html.df-hide-comments.df-comments-while-playing-only.df-video-playing #comment-teaser {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   6. Endscreen Recommendations & Overlay
+   -------------------------------------------------------------------------- */
+html.df-hide-endscreen .ytp-ce-element,
+html.df-hide-endscreen .ytp-endscreen-content,
+html.df-hide-endscreen .ytp-ce-covering-overlay,
+html.df-hide-endscreen .ytp-pause-overlay-container,
+html.df-hide-endscreen .ytp-scroll-min {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   7. Search Results Clean-up (algorithmic distraction shelves)
+   -------------------------------------------------------------------------- */
+html.df-hide-home-feed ytd-search ytd-shelf-renderer:not([is-search]),
+html.df-hide-home-feed ytd-search ytd-horizontal-card-list-renderer {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   8. Clean Home Zen / Focus Hero Screen
+   -------------------------------------------------------------------------- */
+#df-focus-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(80vh - 100px);
+  padding: 40px 20px;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: "Roboto", "Segoe UI", Arial, sans-serif;
+  animation: dfFadeIn 0.35s ease-out;
+  margin: 0 auto;
+  max-width: 680px;
+  width: 100%;
+}
+
+@keyframes dfFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.df-focus-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background: rgba(239, 68, 68, 0.12);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  margin-bottom: 20px;
+}
+
+.df-focus-badge svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.df-focus-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--yt-spec-text-primary, #ffffff);
+  margin: 0 0 10px 0;
+  letter-spacing: -0.5px;
+}
+
+.df-focus-subtitle {
+  font-size: 16px;
+  color: var(--yt-spec-text-secondary, #aaaaaa);
+  margin: 0 0 32px 0;
+  max-width: 480px;
+  line-height: 1.5;
+}
+
+.df-search-form {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  margin-bottom: 28px;
+}
+
+.df-search-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px 52px 16px 20px;
+  font-size: 16px;
+  border-radius: 28px;
+  border: 1px solid var(--yt-spec-10-percent-layer, rgba(255, 255, 255, 0.15));
+  background: var(--yt-spec-raised-background, #212121);
+  color: var(--yt-spec-text-primary, #ffffff);
+  outline: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.df-search-input:focus {
+  border-color: #3ea6ff;
+  box-shadow: 0 0 0 3px rgba(62, 166, 255, 0.25), 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+.df-search-input::placeholder {
+  color: var(--yt-spec-text-secondary, #888888);
+}
+
+.df-search-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--yt-spec-text-primary, #ffffff);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+}
+
+.df-search-btn:hover {
+  background: var(--yt-spec-10-percent-layer, rgba(255, 255, 255, 0.1));
+}
+
+.df-search-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* Quick Nav Pills */
+.df-shortcuts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.df-shortcut-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 18px;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  background: var(--yt-spec-badge-chip-background, rgba(255, 255, 255, 0.08));
+  color: var(--yt-spec-text-primary, #ffffff);
+  border: 1px solid var(--yt-spec-10-percent-layer, rgba(255, 255, 255, 0.06));
+  transition: all 0.15s ease;
+}
+
+.df-shortcut-pill:hover {
+  background: var(--yt-spec-button-chip-background-hover, rgba(255, 255, 255, 0.16));
+  transform: translateY(-1px);
+}
+
+.df-shortcut-pill svg {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+}
+
+.df-quote {
+  font-style: italic;
+  font-size: 14px;
+  color: var(--yt-spec-text-secondary, #717171);
+  letter-spacing: 0.2px;
+}
